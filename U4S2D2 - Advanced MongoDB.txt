@@ -1,0 +1,188 @@
+
+C:\Users\Shoaib Ahmed>mongo
+MongoDB shell version v5.0.6
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("b462c07b-6544-4c62-9d97-24645529063f") }
+MongoDB server version: 5.0.6
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting:
+        2022-03-07T20:34:56.958+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> use Shoaib_data
+switched to db Shoaib_data
+> show dbs
+Shoaib_data  0.000GB
+admin        0.000GB
+config       0.000GB
+local        0.000GB
+> db.movies.find({})
+{ "_id" : ObjectId("6228014aab11ca3a065a858d"), "id" : 1, "movie_name" : "Villa Amalia", "movie_genre" : "Drama|Romance", "production_year" : 2001, "budget" : 17530 }
+{ "_id" : ObjectId("6228014aab11ca3a065a858e"), "id" : 2, "movie_name" : "God's Pocket", "movie_genre" : "Drama", "production_year" : 2001, "budget" : 13613 }
+{ "_id" : ObjectId("6228014aab11ca3a065a858f"), "id" : 3, "movie_name" : "Man Facing Southeast (Hombre mirando al sudeste)", "movie_genre" : "Drama|Sci-Fi", "production_year" : 1996, "budget" : 12926 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8590"), "id" : 4, "movie_name" : "Landscape in the Mist (Topio stin omichli)", "movie_genre" : "Drama", "production_year" : 2015, "budget" : 10510 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8591"), "id" : 5, "movie_name" : "Broken Embraces (Los abrazos rotos)", "movie_genre" : "Drama|Romance|Thriller", "production_year" : 1997, "budget" : 15219 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8592"), "id" : 6, "movie_name" : "Finding Neverland", "movie_genre" : "Drama", "production_year" : 1991, "budget" : 11204 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8593"), "id" : 7, "movie_name" : "Playing God", "movie_genre" : "Crime|Drama|Thriller", "production_year" : 1994, "budget" : 17048 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8594"), "id" : 8, "movie_name" : "Kind Lady", "movie_genre" : "Drama|Thriller", "production_year" : 2004, "budget" : 9690 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8595"), "id" : 9, "movie_name" : "Magnolia", "movie_genre" : "Drama", "production_year" : 1991, "budget" : 11502 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8596"), "id" : 10, "movie_name" : "Paper Soldier (Bumazhnyy soldat)", "movie_genre" : "Drama|Romance", "production_year" : 2003, "budget" : 17817 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8597"), "id" : 11, "movie_name" : "Make Way for Tomorrow", "movie_genre" : "Drama", "production_year" : 2007, "budget" : 10483 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8598"), "id" : 12, "movie_name" : "None But the Lonely Heart", "movie_genre" : "Drama|Romance", "production_year" : 2010, "budget" : 19455 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8599"), "id" : 13, "movie_name" : "Black Sheep", "movie_genre" : "Comedy", "production_year" : 2019, "budget" : 12072 }
+{ "_id" : ObjectId("6228014aab11ca3a065a859a"), "id" : 14, "movie_name" : "Guilt Trip, The", "movie_genre" : "Comedy", "production_year" : 2010, "budget" : 19584 }
+{ "_id" : ObjectId("6228014aab11ca3a065a859b"), "id" : 15, "movie_name" : "Monster in the Closet", "movie_genre" : "Comedy|Horror", "production_year" : 2000, "budget" : 15468 }
+{ "_id" : ObjectId("6228014aab11ca3a065a859c"), "id" : 16, "movie_name" : "Born to Dance", "movie_genre" : "Comedy|Musical", "production_year" : 2005, "budget" : 12304 }
+{ "_id" : ObjectId("6228014aab11ca3a065a859d"), "id" : 17, "movie_name" : "Affair to Remember, An", "movie_genre" : "Drama|Romance", "production_year" : 2009, "budget" : 9907 }
+{ "_id" : ObjectId("6228014aab11ca3a065a859e"), "id" : 18, "movie_name" : "Mindscape of Alan Moore, The", "movie_genre" : "Documentary", "production_year" : 2020, "budget" : 16186 }
+{ "_id" : ObjectId("6228014aab11ca3a065a859f"), "id" : 19, "movie_name" : "The Golden Cage", "movie_genre" : "Drama", "production_year" : 2016, "budget" : 18344 }
+{ "_id" : ObjectId("6228014aab11ca3a065a85a0"), "id" : 20, "movie_name" : "Nines, The", "movie_genre" : "Drama|Mystery", "production_year" : 2007, "budget" : 18943 }
+Type "it" for more
+
+> db.movies.find({"movie_name":"Villa Amalia","production_year":2001},{"_id":0,"id":0,"movie_genre":0,"budget":0})
+{ "movie_name" : "Villa Amalia", "production_year" : 2001 }
+
+> db.movies.find({"movie_name":"Villa Amalia"})
+{ "_id" : ObjectId("6228014aab11ca3a065a858d"), "id" : 1, "movie_name" : "Villa Amalia", "movie_genre" : "Drama|Romance", "production_year" : 2001, "budget" : 17530 }
+
+
+> db.movies.find({"movie_name":{$eq:"Villa Amalia"}})
+{ "_id" : ObjectId("6228014aab11ca3a065a858d"), "id" : 1, "movie_name" : "Villa Amalia", "movie_genre" : "Drama|Romance", "production_year" : 2001, "budget" : 17530 }
+
+
+> db.movies.find({"movie_name":{$ne:"Villa Amalia"}})
+{ "_id" : ObjectId("6228014aab11ca3a065a858e"), "id" : 2, "movie_name" : "God's Pocket", "movie_genre" : "Drama", "production_year" : 2001, "budget" : 13613 }
+{ "_id" : ObjectId("6228014aab11ca3a065a858f"), "id" : 3, "movie_name" : "Man Facing Southeast (Hombre mirando al sudeste)", "movie_genre" : "Drama|Sci-Fi", "production_year" : 1996, "budget" : 12926 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8590"), "id" : 4, "movie_name" : "Landscape in the Mist (Topio stin omichli)", "movie_genre" : "Drama", "production_year" : 2015, "budget" : 10510 }
+Type "it" for more
+
+
+> db.movies.find({"budget":{$gte:"15000"}})
+> db.movies.find({"budget":{$gte:15000}})
+{ "_id" : ObjectId("6228014aab11ca3a065a858d"), "id" : 1, "movie_name" : "Villa Amalia", "movie_genre" : "Drama|Romance", "production_year" : 2001, "budget" : 17530 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8591"), "id" : 5, "movie_name" : "Broken Embraces (Los abrazos rotos)", "movie_genre" : "Drama|Romance|Thriller", "production_year" : 1997, "budget" : 15219 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8593"), "id" : 7, "movie_name" : "Playing God", "movie_genre" : "Crime|Drama|Thriller", "production_year" : 1994, "budget" : 17048 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8596"), "id" : 10, "movie_name" : "Paper Soldier (Bumazhnyy soldat)", "movie_genre" : "Drama|Romance", "production_year" : 2003, "budget" : 17817 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8598"), "id" : 12, "movie_name" : "None But the Lonely Heart", "movie_genre" : "Drama|Romance", "production_year" : 2010, "budget" : 19455 }
+{ "_id" : ObjectId("6228014aab11ca3a065a859a"), "id" : 14, "movie_name" : "Guilt Trip, The", "movie_genre" : "Comedy", "production_year" : 2010, "budget" : 19584 }
+Type "it" for more
+
+
+> db.movies.find({"budget":{$lte:10000}})
+{ "_id" : ObjectId("6228014aab11ca3a065a8594"), "id" : 8, "movie_name" : "Kind Lady", "movie_genre" : "Drama|Thriller", "production_year" : 2004, "budget" : 9690 }
+{ "_id" : ObjectId("6228014aab11ca3a065a859d"), "id" : 17, "movie_name" : "Affair to Remember, An", "movie_genre" : "Drama|Romance", "production_year" : 2009, "budget" : 9907 }
+{ "_id" : ObjectId("6228014aab11ca3a065a85dd"), "id" : 81, "movie_name" : "Almost 18", "movie_genre" : "Comedy|Drama", "production_year" : 2002, "budget" : 9479 }
+{ "_id" : ObjectId("6228014aab11ca3a065a85e2"), "id" : 86, "movie_name" : "Off Limits", "movie_genre" : "Action|Thriller|War", "production_year" : 2015, "budget" : 9676 }
+Type "it" for more
+
+
+
+> db.movies.find({$and:[{"budget":{$gte:10000}},{"production_year":{$gte:2000}}]})
+{ "_id" : ObjectId("6228014aab11ca3a065a858d"), "id" : 1, "movie_name" : "Villa Amalia", "movie_genre" : "Drama|Romance", "production_year" : 2001, "budget" : 17530 }
+{ "_id" : ObjectId("6228014aab11ca3a065a858e"), "id" : 2, "movie_name" : "God's Pocket", "movie_genre" : "Drama", "production_year" : 2001, "budget" : 13613 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8590"), "id" : 4, "movie_name" : "Landscape in the Mist (Topio stin omichli)", "movie_genre" : "Drama", "production_year" : 2015, "budget" : 10510 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8596"), "id" : 10, "movie_name" : "Paper Soldier (Bumazhnyy soldat)", "movie_genre" : "Drama|Romance", "production_year" : 2003, "budget" : 17817 }
+{ "_id" : ObjectId("6228014aab11ca3a065a859c"), "id" : 16, "movie_name" : "Born to Dance", "movie_genre" : "Comedy|Musical", "production_year" : 2005, "budget" : 12304 }
+{ "_id" : ObjectId("6228014aab11ca3a065a85a1"), "id" : 21, "movie_name" : "Monty Python Live at the Hollywood Bowl", "movie_genre" : "Comedy", "production_year" : 2008, "budget" : 18890 }
+{ "_id" : ObjectId("6228014aab11ca3a065a85a5"), "id" : 25, "movie_name" : "Blended", "movie_genre" : "Comedy", "production_year" : 2010, "budget" : 11580 }
+{ "_id" : ObjectId("6228014aab11ca3a065a85a9"), "id" : 29, "movie_name" : "Raising Arizona", "movie_genre" : "Comedy", "production_year" : 2002, "budget" : 13946 }
+Type "it" for more
+>
+
+
+> db.movies.find({$and:[{"budget":{$lte:9999}},{"production_year":{$lte:1999}}]})
+{ "_id" : ObjectId("6228014aab11ca3a065a85ec"), "id" : 96, "movie_name" : "Paint It Yellow (Rang De Basanti)", "movie_genre" : "Action|Comedy|Drama", "production_year" : 1992, "budget" : 9247 }
+{ "_id" : ObjectId("6228014aab11ca3a065a85fc"), "id" : 112, "movie_name" : "Rage (Rabia)", "movie_genre" : "Romance|Thriller", "production_year" : 1994, "budget" : 9570 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8601"), "id" : 117, "movie_name" : "Demonlover", "movie_genre" : "Crime|Drama|Mystery|Thriller", "production_year" : 1995, "budget" : 9638 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8644"), "id" : 184, "movie_name" : "Day of the Outlaw", "movie_genre" : "Western", "production_year" : 1994, "budget" : 9925 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8647"), "id" : 187, "movie_name" : "Sorry, Wrong Number", "movie_genre" : "Drama|Film-Noir|Thriller", "production_year" : 1991, "budget" : 9433 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8676"), "id" : 234, "movie_name" : "Garage", "movie_genre" : "Drama", "production_year" : 1994, "budget" : 9319 }
+{ "_id" : ObjectId("6228014aab11ca3a065a877f"), "id" : 499, "movie_name" : "Is the Man Who Is Tall Happy?", "movie_genre" : "Animation|Documentary", "production_year" : 1996, "budget" : 9259 }
+>
+
+
+
+> db.movies.find({"production_year":{$gte:2000,$lte:2010}})
+{ "_id" : ObjectId("6228014aab11ca3a065a858d"), "id" : 1, "movie_name" : "Villa Amalia", "movie_genre" : "Drama|Romance", "production_year" : 2001, "budget" : 17530 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8594"), "id" : 8, "movie_name" : "Kind Lady", "movie_genre" : "Drama|Thriller", "production_year" : 2004, "budget" : 9690 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8596"), "id" : 10, "movie_name" : "Paper Soldier (Bumazhnyy soldat)", "movie_genre" : "Drama|Romance", "production_year" : 2003, "budget" : 17817 }
+{ "_id" : ObjectId("6228014aab11ca3a065a859b"), "id" : 15, "movie_name" : "Monster in the Closet", "movie_genre" : "Comedy|Horror", "production_year" : 2000, "budget" : 15468 }
+{ "_id" : ObjectId("6228014aab11ca3a065a859d"), "id" : 17, "movie_name" : "Affair to Remember, An", "movie_genre" : "Drama|Romance", "production_year" : 2009, "budget" : 9907 }
+{ "_id" : ObjectId("6228014aab11ca3a065a85a1"), "id" : 21, "movie_name" : "Monty Python Live at the Hollywood Bowl", "movie_genre" : "Comedy", "production_year" : 2008, "budget" : 18890 }
+{ "_id" : ObjectId("6228014aab11ca3a065a85a9"), "id" : 29, "movie_name" : "Raising Arizona", "movie_genre" : "Comedy", "production_year" : 2002, "budget" : 13946 }{ "_id" : ObjectId("6228014aab11ca3a065a85af"), "id" : 35, "movie_name" : "Black Roses ", "movie_genre" : "Horror|Musical", "production_year" : 2004, "budget" : 17863 }
+Type "it" for more
+
+
+
+
+
+> db.movies.find({},{"production_year":1,"movie_name":1}).sort({"production_year":-1,"movie_name":-1})
+{ "_id" : ObjectId("6228014aab11ca3a065a8728"), "movie_name" : "The Hungover Games", "production_year" : 2020 }
+{ "_id" : ObjectId("6228014aab11ca3a065a868d"), "movie_name" : "Supernova", "production_year" : 2020 }
+{ "_id" : ObjectId("6228014aab11ca3a065a872f"), "movie_name" : "Stunt Man, The", "production_year" : 2020 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8766"), "movie_name" : "Springtime in a Small Town (Xiao cheng zhi chun)", "production_year" : 2020 }
+{ "_id" : ObjectId("6228014aab11ca3a065a863d"), "movie_name" : "Reefer Madness (a.k.a. Tell Your Children)", "production_year" : 2020 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8619"), "movie_name" : "Party Girl", "production_year" : 2020 }
+{ "_id" : ObjectId("6228014aab11ca3a065a859e"), "movie_name" : "Mindscape of Alan Moore, The", "production_year" : 2020 }
+{ "_id" : ObjectId("6228014aab11ca3a065a872d"), "movie_name" : "Lonesome Dove", "production_year" : 2020 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8780"), "movie_name" : "Close My Eyes", "production_year" : 2020 }
+{ "_id" : ObjectId("6228014aab11ca3a065a86d0"), "movie_name" : "Buddha Collapsed Out of Shame", "production_year" : 2020 }
+{ "_id" : ObjectId("6228014aab11ca3a065a85f1"), "movie_name" : "Border Radio", "production_year" : 2020 }
+{ "_id" : ObjectId("6228014aab11ca3a065a85c6"), "movie_name" : "Young & Wild (Joven y alocada)", "production_year" : 2019 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8706"), "movie_name" : "Sybil", "production_year" : 2019 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8652"), "movie_name" : "St. Valentine's Day Massacre, The", "production_year" : 2019 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8618"), "movie_name" : "Push", "production_year" : 2019 }
+{ "_id" : ObjectId("6228014aab11ca3a065a85aa"), "movie_name" : "Night and the City", "production_year" : 2019 }
+{ "_id" : ObjectId("6228014aab11ca3a065a863c"), "movie_name" : "Last Exorcism Part II, The", "production_year" : 2019 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8691"), "movie_name" : "Godspeed You! Black Emperor", "production_year" : 2019 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8685"), "movie_name" : "Ghost in the Shell 2: Innocence (a.k.a. Innocence) (Inosensu)", "production_year" : 2019 }
+{ "_id" : ObjectId("6228014aab11ca3a065a86ec"), "movie_name" : "Devil's Carnival, The", "production_year" : 2019 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8655"), "movie_name" : "Commitments, The", "production_year" : 2019 }
+{ "_id" : ObjectId("6228014aab11ca3a065a864b"), "movie_name" : "Burn Notice: The Fall of Sam Axe", "production_year" : 2019 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8636"), "movie_name" : "Bright Lights (Adventures in Africa)", "production_year" : 2019 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8599"), "movie_name" : "Black Sheep", "production_year" : 2019 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8633"), "movie_name" : "Bad Taste", "production_year" : 2019 }
+{ "_id" : ObjectId("6228014aab11ca3a065a85fa"), "movie_name" : "American Vagabond", "production_year" : 2019 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8758"), "movie_name" : "World Is Not Enough, The", "production_year" : 2018 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8724"), "movie_name" : "West of Memphis", "production_year" : 2018 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8683"), "movie_name" : "The Paris Express", "production_year" : 2018 }
+{ "_id" : ObjectId("6228014aab11ca3a065a877d"), "movie_name" : "The Last Journey", "production_year" : 2018 }
+{ "_id" : ObjectId("6228014aab11ca3a065a86ac"), "movie_name" : "Sophie Scholl: The Final Days (Sophie Scholl - Die letzten Tage)", "production_year" : 2018 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8762"), "movie_name" : "Paint Your Wagon", "production_year" : 2018 }
+{ "_id" : ObjectId("6228014aab11ca3a065a85b1"), "movie_name" : "P.S. I Love You", "production_year" : 2018 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8604"), "movie_name" : "Ice Age: A Mammoth Christmas", "production_year" : 2018 }
+{ "_id" : ObjectId("6228014aab11ca3a065a86cb"), "movie_name" : "Diana Vreeland: The Eye Has to Travel", "production_year" : 2018 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8752"), "movie_name" : "Cottage Country", "production_year" : 2018 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8696"), "movie_name" : "Cars 2", "production_year" : 2018 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8668"), "movie_name" : "We Always Lie to Strangers", "production_year" : 2017 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8735"), "movie_name" : "Untamed Heart", "production_year" : 2017 }
+{ "_id" : ObjectId("6228014aab11ca3a065a863e"), "movie_name" : "Sincerely Yours", "production_year" : 2017 }
+Type "it" for more
+
+
+
+
+> db.movies.find({"id":{$gte:1,$lte:15}}).skip(10)
+{ "_id" : ObjectId("6228014aab11ca3a065a8597"), "id" : 11, "movie_name" : "Make Way for Tomorrow", "movie_genre" : "Drama", "production_year" : 2007, "budget" : 10483 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8598"), "id" : 12, "movie_name" : "None But the Lonely Heart", "movie_genre" : "Drama|Romance", "production_year" : 2010, "budget" : 19455 }
+{ "_id" : ObjectId("6228014aab11ca3a065a8599"), "id" : 13, "movie_name" : "Black Sheep", "movie_genre" : "Comedy", "production_year" : 2019, "budget" : 12072 }
+{ "_id" : ObjectId("6228014aab11ca3a065a859a"), "id" : 14, "movie_name" : "Guilt Trip, The", "movie_genre" : "Comedy", "production_year" : 2010, "budget" : 19584 }
+{ "_id" : ObjectId("6228014aab11ca3a065a859b"), "id" : 15, "movie_name" : "Monster in the Closet", "movie_genre" : "Comedy|Horror", "production_year" : 2000, "budget" : 15468 }
+>

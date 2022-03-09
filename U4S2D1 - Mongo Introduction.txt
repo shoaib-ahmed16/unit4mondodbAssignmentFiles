@@ -1,0 +1,145 @@
+>use assignment
+switched to db assignment
+>db.createCollection("users")
+{ "ok":1 }
+>db.users.insert({"first_name" : "Shoaib"})
+WriteResult({ "nInserted":1})
+> db.users.find()
+{ "_id" : ObjectId("6226244f6797c6eb58f03082"), "first_name" : "Shoaib" }
+> db.users.insert({"first_name":"Shoaib"},{$set:{"last_name":"Ahmed","email":"shoaib@gmail.com","gender":"Male","ip-address":"dehradun,Uttarkhand","age":"24yr"}})
+WriteResult({ "nInserted" : 1 })
+> db.users.find()
+{ "_id" : ObjectId("6226244f6797c6eb58f03082"), "first_name" : "Shoaib" }
+{ "_id" : ObjectId("622626626797c6eb58f03083"), "first_name" : "Shoaib" }
+> db.users.update({"first_name":"Shoaib"},{$set:{"last_name":"Ahmed","email":"asdasd@gmail.com","gender":"Male","ip-address":"dehradun,uttarakhand","age":"24yr"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })> db.users.find()
+{ "_id" : ObjectId("6226244f6797c6eb58f03082"), "first_name" : "Shoaib", "age" : "24yr", "email" : "asdasd@gmail.com", "gender" : "Male", "ip-address" : "dehradun,uttarakhand", "last_name" : "Ahmed" }
+{ "_id" : ObjectId("622626626797c6eb58f03083"), "first_name" : "Shoaib" }
+> db.users.insertMany([{"first_name":"chiku","last_name":"pandey","email":"chikue@gmail.com","ip-address":"dehrdun,uttrarakhand","gender":"Male","age":"23yr"}],[{"first_name":"ali","last_name":"ahmed","age":"20","ip-address":"dehradun,uttarakhand","email":"ali@gamil.com","gender":"Male"}],[{"first_name":"golu","last_name":"raju","ip-address":"delhi","email":"raju@gmail.com","age":"30yr","gender":"Male"}],[{"first_name":"killo","last_name":"meter","age":"34yr","email":"kilometer@gmail.com","gender":"other","ip-address":"measuremnet"}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("62262a276797c6eb58f03084")
+        ]
+}
+> db.users.find()
+{ "_id" : ObjectId("6226244f6797c6eb58f03082"), "first_name" : "Shoaib", "age" : "24yr", "email" : "asdasd@gmail.com", "gender" : "Male", "ip-address" : "dehradun,uttarakhand", "last_name" : "Ahmed" }
+{ "_id" : ObjectId("622626626797c6eb58f03083"), "first_name" : "Shoaib" }
+{ "_id" : ObjectId("62262a276797c6eb58f03084"), "first_name" : "chiku", "last_name" : "pandey", "email" : "chikue@gmail.com", "ip-address" : "dehrdun,uttrarakhand", "gender" : "Male", "age" : "23yr" }
+> db.users.findOne({"__id":"62262a276797c6eb58f03084"})
+null
+> db.users.findOne({"_id":"62262a276797c6eb58f03084"})
+null
+> db.users.findOne({_id:"62262a276797c6eb58f03084"})
+null
+> db.users.findOne({"_id":OrderId("62262a276797c6eb58f03084"})
+... cls
+... ^C
+
+> db.users.findOne({"_id":"ObjectId("62262a276797c6eb58f03084")})
+> db.users.insertMany([{"first_name":"chiku","last_name":"pandey","email":"chikue@gmail.com","ip-address":"dehrdun,uttrarakhand","gender":"Male","age":"23yr"}],[{"first_name":"ali","last_name":"ahmed","age":"20","ip-address":"dehradun,uttarakhand","email":"ali@gamil.com","gender":"Male"}],[{"first_name":"golu","last_name":"raju","ip-address":"delhi","email":"raju@gmail.com","age":"30yr","gender":"Male"}],[{"first_name":"killo","last_name":"meter","age":"34yr","email":"kilometer@gmail.com","gender":"other","ip-address":"measuremnet"}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("62262e2f6797c6eb58f03085")
+        ]
+}
+> db.users.find()
+{ "_id" : ObjectId("6226244f6797c6eb58f03082"), "first_name" : "Shoaib", "age" : "24yr", "email" : "asdasd@gmail.com", "gender" : "Male", "ip-address" : "dehradun,uttarakhand", "last_name" : "Ahmed" }
+{ "_id" : ObjectId("622626626797c6eb58f03083"), "first_name" : "Shoaib" }
+{ "_id" : ObjectId("62262a276797c6eb58f03084"), "first_name" : "chiku", "last_name" : "pandey", "email" : "chikue@gmail.com", "ip-address" : "dehrdun,uttrarakhand", "gender" : "Male", "age" : "23yr" }
+{ "_id" : ObjectId("62262e2f6797c6eb58f03085"), "first_name" : "chiku", "last_name" : "pandey", "email" : "chikue@gmail.com", "ip-address" : "dehrdun,uttrarakhand", "gender" : "Male", "age" : "23yr" }
+> db.users.findOne({"_id":ObjectId("62262e2f6797c6eb58f03085")})
+{
+        "_id" : ObjectId("62262e2f6797c6eb58f03085"),
+        "first_name" : "chiku",
+        "last_name" : "pandey",
+        "email" : "chikue@gmail.com",
+        "ip-address" : "dehrdun,uttrarakhand",
+        "gender" : "Male",
+        "age" : "23yr"
+}
+> db.users.insertMany([{"first_name":"chiku","last_name":"pandey","email":"chikue@gmail.com","ip-address":"dehrdun,uttrarakhand","gender":"Male","age":"23yr"},{"first_name":"ali","last_name":"ahmed","age":"20","ip-address":"dehradun,uttarakhand","email":"ali@gamil.com","gender":"Male"},{"first_name":"golu","last_name":"raju","ip-address":"delhi","email":"raju@gmail.com","age":"30yr","gender":"Male"},{"first_name":"killo","last_name":"meter","age":"34yr","email":"kilometer@gmail.com","gender":"other","ip-address":"measuremnet"}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("62262fad6797c6eb58f03086"),
+                ObjectId("62262fad6797c6eb58f03087"),
+                ObjectId("62262fad6797c6eb58f03088"),
+                ObjectId("62262fad6797c6eb58f03089")
+        ]
+}
+> db.users.find()
+{ "_id" : ObjectId("6226244f6797c6eb58f03082"), "first_name" : "Shoaib", "age" : "24yr", "email" : "asdasd@gmail.com", "gender" : "Male", "ip-address" : "dehradun,uttarakhand", "last_name" : "Ahmed" }
+{ "_id" : ObjectId("622626626797c6eb58f03083"), "first_name" : "Shoaib" }
+{ "_id" : ObjectId("62262a276797c6eb58f03084"), "first_name" : "chiku", "last_name" : "pandey", "email" : "chikue@gmail.com", "ip-address" : "dehrdun,uttrarakhand", "gender" : "Male", "age" : "23yr" }
+{ "_id" : ObjectId("62262e2f6797c6eb58f03085"), "first_name" : "chiku", "last_name" : "pandey", "email" : "chikue@gmail.com", "ip-address" : "dehrdun,uttrarakhand", "gender" : "Male", "age" : "23yr" }
+{ "_id" : ObjectId("62262fad6797c6eb58f03086"), "first_name" : "chiku", "last_name" : "pandey", "email" : "chikue@gmail.com", "ip-address" : "dehrdun,uttrarakhand", "gender" : "Male", "age" : "23yr" }
+{ "_id" : ObjectId("62262fad6797c6eb58f03087"), "first_name" : "ali", "last_name" : "ahmed", "age" : "20", "ip-address" : "dehradun,uttarakhand", "email" : "ali@gamil.com", "gender" : "Male" }
+{ "_id" : ObjectId("62262fad6797c6eb58f03088"), "first_name" : "golu", "last_name" : "raju", "ip-address" : "delhi", "email" : "raju@gmail.com", "age" : "30yr", "gender" : "Male" }
+{ "_id" : ObjectId("62262fad6797c6eb58f03089"), "first_name" : "killo", "last_name" : "meter", "age" : "34yr", "email" : "kilometer@gmail.com", "gender" : "other", "ip-address" : "measuremnet" }
+> db.users.insertMany([{"first_name":"chiku","last_name":"pandey","email":"chikue@gmail.com","ip-address":"dehrdun,uttrarakhand","gender":"Male","age":"23yr"},{"first_name":"ali","last_name":"ahmed","age":"20","ip-address":"dehradun,uttarakhand","email":"ali@gamil.com","gender":"Male"},{"first_name":"golu","last_name":"raju","ip-address":"delhi","email":"raju@gmail.com","age":"30yr","gender":"Male"},{"first_name":"killo","last_name":"meter","age":"34yr","email":"kilometer@gmail.com","gender":"other","ip-address":"measuremnet"}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("62262fad6797c6eb58f030810"),
+                ObjectId("62262fad6797c6eb58f030811"),
+                ObjectId("62262fad6797c6eb58f030812"),
+                ObjectId("62262fad6797c6eb58f030813")
+        ]
+}
+> db.users.find()
+{ "_id" : ObjectId("6226244f6797c6eb58f03082"), "first_name" : "Shoaib", "age" : "24yr", "email" : "asdasd@gmail.com", "gender" : "Male", "ip-address" : "dehradun,uttarakhand", "last_name" : "Ahmed" }
+{ "_id" : ObjectId("622626626797c6eb58f03083"), "first_name" : "Shoaib" }
+{ "_id" : ObjectId("62262a276797c6eb58f03084"), "first_name" : "chiku", "last_name" : "pandey", "email" : "chikue@gmail.com", "ip-address" : "dehrdun,uttrarakhand", "gender" : "Male", "age" : "23yr" }
+{ "_id" : ObjectId("62262e2f6797c6eb58f03085"), "first_name" : "chiku", "last_name" : "pandey", "email" : "chikue@gmail.com", "ip-address" : "dehrdun,uttrarakhand", "gender" : "Male", "age" : "23yr" }
+{ "_id" : ObjectId("62262fad6797c6eb58f03086"), "first_name" : "chiku", "last_name" : "pandey", "email" : "chikue@gmail.com", "ip-address" : "dehrdun,uttrarakhand", "gender" : "Male", "age" : "23yr" }
+{ "_id" : ObjectId("62262fad6797c6eb58f03087"), "first_name" : "ali", "last_name" : "ahmed", "age" : "20", "ip-address" : "dehradun,uttarakhand", "email" : "ali@gamil.com", "gender" : "Male" }
+{ "_id" : ObjectId("62262fad6797c6eb58f03088"), "first_name" : "golu", "last_name" : "raju", "ip-address" : "delhi", "email" : "raju@gmail.com", "age" : "30yr", "gender" : "Male" }
+{ "_id" : ObjectId("62262fad6797c6eb58f03089"), "first_name" : "killo", "last_name" : "meter", "age" : "34yr", "email" : "kilometer@gmail.com", "gender" : "other", "ip-address" : "measuremnet" }
+{ "_id" : ObjectId("62262fad6797c6eb58f030810"), "first_name" : "chiku", "last_name" : "pandey", "email" : "chikue@gmail.com", "ip-address" : "dehrdun,uttrarakhand", "gender" : "Male", "age" : "23yr" }
+{ "_id" : ObjectId("62262fad6797c6eb58f030811"), "first_name" : "ali", "last_name" : "ahmed", "age" : "20", "ip-address" : "dehradun,uttarakhand", "email" : "ali@gamil.com", "gender" : "Male" }
+{ "_id" : ObjectId("62262fad6797c6eb58f030812"), "first_name" : "golu", "last_name" : "raju", "ip-address" : "delhi", "email" : "raju@gmail.com", "age" : "30yr", "gender" : "Male" }
+{ "_id" : ObjectId("62262fad6797c6eb58f030813"), "first_name" : "killo", "last_name" : "meter", "age" : "34yr", "email" : "kilometer@gmail.com", "gender" : "other", "ip-address" : "measuremnet" }
+
+> db.users.update({"first_name":"Shoaib"},{$set:{"nickName":"Sami"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.users.find({"first_name":"Shoaib"})
+{ "_id" : ObjectId("6226244f6797c6eb58f03082"), "first_name" : "Shoaib", "age" : "24yr", "email" : "asdasd@gmail.com", "gender" : "Male", "ip-address" : "dehradun,uttarakhand", "last_name" : "Ahmed", "nickName" : "Sami" }
+{ "_id" : ObjectId("622626626797c6eb58f03083"), "first_name" : "Shoaib" }
+>
+> db.users.updateMany({"first_name":"chiku"},{$set:{"altername":"Chimpazi"}})
+{ "acknowledged" : true, "matchedCount" : 3, "modifiedCount" : 3 }
+> db.users.find()
+{ "_id" : ObjectId("6226244f6797c6eb58f03082"), "first_name" : "Shoaib", "age" : "24yr", "email" : "asdasd@gmail.com", "gender" : "Male", "ip-address" : "dehradun,uttarakhand", "last_name" : "Ahmed", "nickName" : "Sami" }
+{ "_id" : ObjectId("622626626797c6eb58f03083"), "first_name" : "Shoaib" }
+{ "_id" : ObjectId("62262a276797c6eb58f03084"), "first_name" : "chiku", "last_name" : "pandey", "email" : "chikue@gmail.com", "ip-address" : "dehrdun,uttrarakhand", "gender" : "Male", "age" : "23yr", "altername" : "Chimpazi" }
+{ "_id" : ObjectId("62262e2f6797c6eb58f03085"), "first_name" : "chiku", "last_name" : "pandey", "email" : "chikue@gmail.com", "ip-address" : "dehrdun,uttrarakhand", "gender" : "Male", "age" : "23yr", "altername" : "Chimpazi" }
+{ "_id" : ObjectId("62262fad6797c6eb58f03086"), "first_name" : "chiku", "last_name" : "pandey", "email" : "chikue@gmail.com", "ip-address" : "dehrdun,uttrarakhand", "gender" : "Male", "age" : "23yr", "altername" : "Chimpazi" }
+{ "_id" : ObjectId("62262fad6797c6eb58f03087"), "first_name" : "ali", "last_name" : "ahmed", "age" : "20", "ip-address" : "dehradun,uttarakhand", "email" : "ali@gamil.com", "gender" : "Male" }
+{ "_id" : ObjectId("62262fad6797c6eb58f03088"), "first_name" : "golu", "last_name" : "raju", "ip-address" : "delhi", "email" : "raju@gmail.com", "age" : "30yr", "gender" : "Male" }
+{ "_id" : ObjectId("62262fad6797c6eb58f03089"), "first_name" : "killo", "last_name" : "meter", "age" : "34yr", "email" : "kilometer@gmail.com", "gender" : "other", "ip-address" : "measuremnet" }
+>
+> db.users.remove({"_id":ObjectId("6226244f676997c6eb58f03083")},{$unset:{"nickName":"Sami"})
+... ^C
+
+> db.users.remove({"first_name":"Shoaib"})
+WriteResult({ "nRemoved" : 2 })
+> db.users.find()
+{ "_id" : ObjectId("62262a276797c6eb58f03084"), "first_name" : "chiku", "last_name" : "pandey", "email" : "chikue@gmail.com", "ip-address" : "dehrdun,uttrarakhand", "gender" : "Male", "age" : "23yr", "altername" : "Chimpazi" }
+{ "_id" : ObjectId("62262e2f6797c6eb58f03085"), "first_name" : "chiku", "last_name" : "pandey", "email" : "chikue@gmail.com", "ip-address" : "dehrdun,uttrarakhand", "gender" : "Male", "age" : "23yr", "altername" : "Chimpazi" }
+{ "_id" : ObjectId("62262fad6797c6eb58f03086"), "first_name" : "chiku", "last_name" : "pandey", "email" : "chikue@gmail.com", "ip-address" : "dehrdun,uttrarakhand", "gender" : "Male", "age" : "23yr", "altername" : "Chimpazi" }
+{ "_id" : ObjectId("62262fad6797c6eb58f03087"), "first_name" : "ali", "last_name" : "ahmed", "age" : "20", "ip-address" : "dehradun,uttarakhand", "email" : "ali@gamil.com", "gender" : "Male" }
+{ "_id" : ObjectId("62262fad6797c6eb58f03088"), "first_name" : "golu", "last_name" : "raju", "ip-address" : "delhi", "email" : "raju@gmail.com", "age" : "30yr", "gender" : "Male" }
+{ "_id" : ObjectId("62262fad6797c6eb58f03089"), "first_name" : "killo", "last_name" : "meter", "age" : "34yr", "email" : "kilometer@gmail.com", "gender" : "other", "ip-address" : "measuremnet" }
+>db.users.remove({"_id":ObjectId("62262fad6797c6eb58f03089")},{$unset:{"email":"kilometer@gmail.com"})
+
+switched to db assignment
+> db.dropDatabase()
+{ "ok" : 1 }
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+>
+
